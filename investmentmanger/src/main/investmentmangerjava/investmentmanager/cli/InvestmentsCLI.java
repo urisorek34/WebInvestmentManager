@@ -125,6 +125,7 @@ public class InvestmentsCLI {
 					code = scanner.nextInt();
 					e = null;
 					boolean check = false;
+
 					
 
 					switch (code) {
@@ -198,7 +199,7 @@ public class InvestmentsCLI {
 					investmentManager.update(e);
 					if (check) {
 						for(Entity fund : investmentManager.getAll(InvestmentManagerFileDao.fund)) {
-							((InvestmentFund)fund).updateStocks((Stock) investmentManager.get(id, Stock.class));
+							((InvestmentFund)fund).updateStocks((Stock)e);
 							investmentManager.update(fund);
 							for(Entity investor : investmentManager.getAll(InvestmentManagerFileDao.investor)) {
 								((Investor)investor).updateFund(((InvestmentFund)fund));
